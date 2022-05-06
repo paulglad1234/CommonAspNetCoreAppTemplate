@@ -52,36 +52,40 @@ public static class SwaggerConfiguration
             var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
             options.IncludeXmlComments(xmlPath);
 
-            //options.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
-            //{
-            //    Name = IdentityServerAuthenticationDefaults.AuthenticationScheme,
-            //    Type = SecuritySchemeType.OAuth2,
-            //    Scheme = "oauth2",
-            //    BearerFormat = "JWT",
-            //    In = ParameterLocation.Header,
-            //    Flows = new OpenApiOAuthFlows
-            //    {
-            //        Password = new OpenApiOAuthFlow
-            //        {
-            //            TokenUrl = new Uri($"{settings.IdentityServer.Url}/connect/token"),
-            //        }
-            //    }
-            //});
+            options.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
+            {
+                Name = IdentityServerAuthenticationDefaults.AuthenticationScheme,
+                Type = SecuritySchemeType.OAuth2,
+                Scheme = "oauth2",
+                BearerFormat = "JWT",
+                In = ParameterLocation.Header,
+                Flows = new OpenApiOAuthFlows
+                {
+                    ClientCredentials = new OpenApiOAuthFlow
+                    {
+                        TokenUrl = new Uri($"{settings.IdentityServer.Url}/connect/token"),
+                    },
+                    Password = new OpenApiOAuthFlow
+                    {
+                        TokenUrl = new Uri($"{settings.IdentityServer.Url}/connect/token"),
+                    }
+                }
+            });
 
-            //options.AddSecurityRequirement(new OpenApiSecurityRequirement
-            //    {
-            //        {
-            //            new OpenApiSecurityScheme
-            //            {
-            //                Reference = new OpenApiReference
-            //                {
-            //                    Type = ReferenceType.SecurityScheme,
-            //                    Id = "oauth2"
-            //                }
-            //            },
-            //            new List<string>()
-            //        }
-            //    });
+            options.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "oauth2"
+                            }
+                        },
+                        new List<string>()
+                    }
+                });
         });
     }
 
@@ -113,11 +117,8 @@ public static class SwaggerConfiguration
                 options.DefaultModelsExpandDepth(-1);
                 options.OAuthAppName(AppTitle);
 
-                if (app.Environment.IsDevelopment())
-                {
-                    options.OAuthClientId(settings.IdentityServer.ClientId);
-                    options.OAuthClientSecret(settings.IdentityServer.ClientSecret);
-                }
+                options.OAuthClientId(settings.IdentityServer.ClientId);
+                options.OAuthClientSecret(settings.IdentityServer.ClientSecret);
             }
         );
     }

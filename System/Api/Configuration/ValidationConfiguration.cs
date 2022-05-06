@@ -3,6 +3,7 @@ using Template.Common.Responses;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Template.Common.Validator;
 
 namespace Template.Api.Configuration;
 
@@ -33,7 +34,6 @@ public static class ValidationConfiguration
 
                 var result = new BadRequestObjectResult(new ErrorResponse()
                 {
-                    ErrorCode = -1,
                     Message = "One or more validation errors occurred.",
                     FieldErrors = fieldErrors
                 });
@@ -51,7 +51,7 @@ public static class ValidationConfiguration
 
         ValidatorsRegisterHelper.Register(builder.Services);
 
-        //builder.Services.AddSingleton(typeof(IModelValidator<>), typeof(ModelValidator<>));
+        builder.Services.AddSingleton(typeof(IModelValidator<>), typeof(ModelValidator<>));
 
         return builder;
     }

@@ -10,7 +10,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Duende.IdentityServer" Version="6.0.4" />
+    <PackageReference Include="Duende.IdentityServer.AspNetIdentity" Version="6.0.4" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.14.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Data\Db.Context\Template.Db.Context.csproj" />
+    <ProjectReference Include="..\..\Data\Db.Entities\Template.Db.Entities.csproj" />
+    <ProjectReference Include="..\..\Services\Settings\Template.Settings.csproj" />
+    <ProjectReference Include="..\..\Shared\Common\Template.Common.csproj" />
   </ItemGroup>
 
 </Project>

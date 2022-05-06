@@ -1,15 +1,28 @@
+using Template.Identity.Configuration;
+using Template.Settings;
+
 var builder = WebApplication.CreateBuilder(args);
+
+var settings = new IS4Settings(new SettingsSource());
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+var services = builder.Services;
+
+services.AddAppCors();
+services.AddAppDbContext(settings.Db);
+services.AddHttpContextAccessor();
+services.AddSettings();
+services.AddIS4();
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 
-app.UseAuthorization();
-
-app.MapControllers();
+app.UseAppCors();
+app.UseStaticFiles();
+app.UseRouting();
+app.UseAppDbContext();
+app.UseIS4();
 
 app.Run();

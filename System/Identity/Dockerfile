@@ -6,16 +6,20 @@ EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["System/Identity/Identity.csproj", "System/Identity/"]
-RUN dotnet restore "System/Identity/Identity.csproj"
+COPY ["System/Identity/Template.Identity.csproj", "System/Identity/"]
+COPY ["Shared/Common/Template.Common.csproj", "Shared/Common/"]
+COPY ["Data/Db.Entities/Template.Db.Entities.csproj", "Data/Db.Entities/"]
+COPY ["Data/Db.Context/Template.Db.Context.csproj", "Data/Db.Context/"]
+COPY ["Services/Settings/Template.Settings.csproj", "Services/Settings/"]
+RUN dotnet restore "System/Identity/Template.Identity.csproj"
 COPY . .
 WORKDIR "/src/System/Identity"
-RUN dotnet build "Identity.csproj" -c Release -o /app/build
+RUN dotnet build "Template.Identity.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "Identity.csproj" -c Release -o /app/publish
+RUN dotnet publish "Template.Identity.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Identity.dll"]
+ENTRYPOINT ["dotnet", "Template.Identity.dll"]

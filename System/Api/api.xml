@@ -16,6 +16,18 @@
             <param name="services">Service collection</param>
             <returns>Service collection</returns>
         </member>
+        <member name="T:Template.Api.Configuration.AutoMapperConfiguration">
+            <summary>
+            AutoMapper configuration class
+            </summary>
+        </member>
+        <member name="M:Template.Api.Configuration.AutoMapperConfiguration.AddAppAutoMapper(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Add Automapper to the service collection
+            </summary>
+            <param name="services">Service collection</param>
+            <returns>Service collection</returns>
+        </member>
         <member name="T:Template.Api.Configuration.CorsConfiguration">
             <summary>
             CORS configuration class
@@ -134,6 +146,24 @@
         <member name="T:Template.Api.Middleware.ExceptionsMiddleware">
             <summary>
             Global exception catcher
+            </summary>
+        </member>
+        <member name="T:Template.API.Configuration.AuthConfiguration">
+            <summary>
+            Authentication and authorization configuration class
+            </summary>
+        </member>
+        <member name="M:Template.API.Configuration.AuthConfiguration.AddAppAuth(Microsoft.Extensions.DependencyInjection.IServiceCollection,Template.Settings.IApiSettings)">
+            <summary>
+            Configure authentication and authorization and add them to the service collection
+            </summary>
+            <param name="services">Service collection</param>
+            <param name="settings">Settings</param>
+            <returns></returns>
+        </member>
+        <member name="M:Template.API.Configuration.AuthConfiguration.UseAppAuth(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            Enable authentication and authorization
             </summary>
         </member>
     </members>

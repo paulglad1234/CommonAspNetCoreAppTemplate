@@ -6,20 +6,20 @@ EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["System/Api/Api.csproj", "System/Api/"]
-COPY ["Data/Db.Entities/Db.Entities.csproj", "Data/Db.Entities/"]
-COPY ["Data/Db.Context/Db.Context.csproj", "Data/Db.Context/"]
-COPY ["Services/Settings/Settings.csproj", "Services/Settings/"]
-COPY ["Shared/Common/Common.csproj", "Shared/Common/"]
-RUN dotnet restore "System/Api/Api.csproj"
+COPY ["System/Api/Template.Api.csproj", "System/Api/"]
+COPY ["Shared/Common/Template.Common.csproj", "Shared/Common/"]
+COPY ["Data/Db.Entities/Template.Db.Entities.csproj", "Data/Db.Entities/"]
+COPY ["Data/Db.Context/Template.Db.Context.csproj", "Data/Db.Context/"]
+COPY ["Services/Settings/Template.Settings.csproj", "Services/Settings/"]
+RUN dotnet restore "System/Api/Template.Api.csproj"
 COPY . .
 WORKDIR "/src/System/Api"
-RUN dotnet build "Api.csproj" -c Release -o /app/build
+RUN dotnet build "Template.Api.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "Api.csproj" -c Release -o /app/publish
+RUN dotnet publish "Template.Api.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Api.dll"]
+ENTRYPOINT ["dotnet", "Template.Api.dll"]

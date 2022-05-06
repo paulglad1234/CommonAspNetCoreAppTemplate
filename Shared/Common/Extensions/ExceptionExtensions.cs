@@ -1,7 +1,8 @@
 ﻿namespace Template.Common.Extensions;
 
 using Template.Common.Responses;
-using FluentValidation.Results;
+using Template.Common.Exceptions;
+using FluentValidation;
 
 public static class ErrorResponseExtensions
 {
@@ -10,53 +11,53 @@ public static class ErrorResponseExtensions
     /// </summary>
     /// <param name="data"></param>
     /// <returns></returns>
-    //public static ErrorResponse ToErrorResponse(this ValidationResult data)
-    //{
-    //    var res = new ErrorResponse()
-    //    {
-    //        Message = "",
-    //        FieldErrors = data.Errors.Select(x =>
-    //        {
-    //            var elems = x.ErrorMessage.Split('&');
-    //            var errorName = elems[0];
-    //            var errorMessage = elems.Length > 0 ? elems[1] : errorName;
-    //            return new ErrorResponseFieldInfo()
-    //            {
-    //                FieldName = x.PropertyName,
-    //                Message = errorMessage,
-    //            };
-    //        })
-    //    };
+    public static ErrorResponse ToErrorResponse(this ValidationException data)
+    {
+        var res = new ErrorResponse()
+        {
+            Message = "",
+            FieldErrors = data.Errors.Select(x =>
+            {
+                var elems = x.ErrorMessage.Split('&');
+                var errorName = elems[0];
+                var errorMessage = elems.Length > 0 ? elems[1] : errorName;
+                return new ErrorResponseFieldInfo()
+                {
+                    FieldName = x.PropertyName,
+                    Message = errorMessage,
+                };
+            })
+        };
 
-    //    return res;
-    //}
+        return res;
+    }
 
     /// <summary>
     /// Convert process exception to ErrorResponse
     /// </summary>
-    /// <param name="data">Process exception</param>
+    /// <param name="exception">Process exception</param>
     /// <returns></returns>
-    //public static ErrorResponse ToErrorResponse(this ProcessException data)
-    //{
-    //    var res = new ErrorResponse()
-    //    {
-    //        Message = data.Message
-    //    };
+    public static ErrorResponse ToErrorResponse(this CommonException exception)
+    {
+        var res = new ErrorResponse()
+        {
+            ErrorCode = exception.Code,
+            Message = exception.Message
+        };
 
-    //    return res;
-    //}
+        return res;
+    }
 
     /// <summary>
     /// Convert exception to ErrorResponse
     /// </summary>
-    /// <param name="data">Exception</param>
+    /// <param name="exception">Exception</param>
     /// <returns></returns>
-    public static ErrorResponse ToErrorResponse(this Exception data)
+    public static ErrorResponse ToErrorResponse(this Exception exception)
     {
         var res = new ErrorResponse()
         {
-            ErrorCode = -1,
-            Message = data.Message
+            Message = exception.Message
         };
 
         return res;

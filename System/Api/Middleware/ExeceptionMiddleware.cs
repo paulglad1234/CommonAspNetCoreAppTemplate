@@ -3,6 +3,8 @@
 using Template.Common.Extensions;
 using Template.Common.Responses;
 using System.Text.Json;
+using Template.Common.Exceptions;
+using FluentValidation;
 
 /// <summary>
 /// Global exception catcher
@@ -23,14 +25,14 @@ public class ExceptionsMiddleware
         {
             await next.Invoke(context);
         }
-        //catch (ValidationException e)
-        //{
-        //    response = e?.Errors.ToErrorResponse();
-        //}
-        //catch (ProcessException e)
-        //{
-        //    response = e.ToErrorResponse();
-        //}
+        catch (ValidationException e)
+        {
+            response = e.ToErrorResponse();
+        }
+        catch (CommonException e)
+        {
+            response = e.ToErrorResponse();
+        }
         catch (Exception e)
         {
             response = e.ToErrorResponse();

@@ -1,6 +1,7 @@
 ﻿namespace Template.Identity;
 
 using Duende.IdentityServer.Models;
+using Template.Common.Security;
 
 public static class AppClients
 {
@@ -20,6 +21,7 @@ public static class AppClients
                 AccessTokenLifetime = 3600, // 1 hour
 
                 AllowedScopes = {
+                    AppScopes.Common
                 }
             }
             ,
@@ -44,6 +46,7 @@ public static class AppClients
                 SlidingRefreshTokenLifetime = 1296000, // 15 days
 
                 AllowedScopes = {
+                    AppScopes.Common
                 }
             }
         };

@@ -64,10 +64,18 @@ public static class SwaggerConfiguration
                     ClientCredentials = new OpenApiOAuthFlow
                     {
                         TokenUrl = new Uri($"{settings.IdentityServer.Url}/connect/token"),
+                        Scopes = new Dictionary<string, string>
+                        {
+
+                        }
                     },
                     Password = new OpenApiOAuthFlow
                     {
                         TokenUrl = new Uri($"{settings.IdentityServer.Url}/connect/token"),
+                        Scopes = new Dictionary<string, string>
+                        {
+
+                        }
                     }
                 }
             });

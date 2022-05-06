@@ -10,13 +10,13 @@ public static class AppApiTestUsers
             new TestUser
             {
                 SubjectId = "1",
-                Username = "alice@tst.com",
+                Username = "root",
                 Password = "password"
             },
             new TestUser
             {
                 SubjectId = "2",
-                Username = "bob@tst.com",
+                Username = "admin",
                 Password = "password"
             }
         };

@@ -1,4 +1,4 @@
-﻿namespace Api.Configuration;
+﻿namespace Template.Api.Configuration;
 
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using System.Reflection;
@@ -16,7 +16,7 @@ public class ExampleHealthCheck : IHealthCheck
     /// <returns>Healthy or Unhealthy</returns>
     public async Task<HealthCheckResult> CheckHealthAsync(HealthCheckContext context, CancellationToken cancellationToken = default(CancellationToken))
     {
-        var assembly = Assembly.Load("Api");
+        var assembly = Assembly.Load("Template.Api");
         var versionNumber = assembly.GetName().Version;
 
         return HealthCheckResult.Healthy(description: $"Build {versionNumber}");

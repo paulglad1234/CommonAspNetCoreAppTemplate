@@ -1,4 +1,4 @@
-﻿namespace Settings;
+﻿namespace Template.Settings;
 
 using Microsoft.Extensions.DependencyInjection;
 

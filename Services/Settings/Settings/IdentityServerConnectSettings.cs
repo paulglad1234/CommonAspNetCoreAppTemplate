@@ -1,4 +1,4 @@
-﻿namespace Settings;
+﻿namespace Template.Settings;
 
 public class IdentityServerConnectSettings : IIdentityServerConnectSettings
 {

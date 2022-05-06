@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace Db.Context.Factories;
+namespace Template.Db.Context.Factories;
 
 public class MainDbContextFactory
 {

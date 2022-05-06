@@ -1,9 +1,9 @@
-﻿using Db.Context;
-using Db.Context.Factories;
-using Db.Context.Setup;
-using Settings;
+﻿using Template.Db.Context;
+using Template.Db.Context.Factories;
+using Template.Db.Context.Setup;
+using Template.Settings;
 
-namespace Api.Configuration;
+namespace Template.Api.Configuration;
 
 /// <summary>
 /// Database configuration class

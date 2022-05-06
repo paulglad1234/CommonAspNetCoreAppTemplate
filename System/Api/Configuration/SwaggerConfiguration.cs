@@ -1,7 +1,7 @@
-﻿namespace Api.Configuration;
+﻿namespace Template.Api.Configuration;
 
 using IdentityServer4.AccessTokenValidation;
-using Settings;
+using Template.Settings;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.OpenApi.Any;
 using Microsoft.OpenApi.Models;
@@ -13,7 +13,7 @@ using Swashbuckle.AspNetCore.SwaggerUI;
 /// </summary>
 public static class SwaggerConfiguration
 {
-    private static string AppTitle = "Interactive Helper";
+    private static string AppTitle = "Template";
 
     /// <summary>
     /// Enables OpenAPI for the project

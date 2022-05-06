@@ -1,67 +1,79 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>Api</name>
+        <name>Template.Api</name>
     </assembly>
     <members>
-        <member name="T:Api.Configuration.CorsConfiguration">
+        <member name="T:Template.Api.Bootstrapper">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Template.Api.Bootstrapper.AddAppServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Add business layer services to the service collection
+            </summary>
+            <param name="services">Service collection</param>
+            <returns>Service collection</returns>
+        </member>
+        <member name="T:Template.Api.Configuration.CorsConfiguration">
             <summary>
             CORS configuration class
             </summary>
         </member>
-        <member name="M:Api.Configuration.CorsConfiguration.AddAppCors(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+        <member name="M:Template.Api.Configuration.CorsConfiguration.AddAppCors(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
             <summary>
             Adds CORS to the service collection
             </summary>
             <param name="services">App service collection</param>
         </member>
-        <member name="M:Api.Configuration.CorsConfiguration.UseAppCors(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+        <member name="M:Template.Api.Configuration.CorsConfiguration.UseAppCors(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
             <summary>
             Use CORS service
             </summary>
             <param name="app">Application</param>
         </member>
-        <member name="T:Api.Configuration.DbConfiguration">
+        <member name="T:Template.Api.Configuration.DbConfiguration">
             <summary>
             Database configuration class
             </summary>
         </member>
-        <member name="M:Api.Configuration.DbConfiguration.AddAppDbContext(Microsoft.Extensions.DependencyInjection.IServiceCollection,Settings.IApiSettings)">
+        <member name="M:Template.Api.Configuration.DbConfiguration.AddAppDbContext(Microsoft.Extensions.DependencyInjection.IServiceCollection,Template.Settings.IApiSettings)">
             <summary>
             Add DB context factory to the service colection
             </summary>
             <param name="services">Service collection</param>
             <param name="settings">App settings</param>
         </member>
-        <member name="M:Api.Configuration.DbConfiguration.UseAppDbContext(Microsoft.AspNetCore.Builder.WebApplication)">
+        <member name="M:Template.Api.Configuration.DbConfiguration.UseAppDbContext(Microsoft.AspNetCore.Builder.WebApplication)">
             <summary>
             Use database in the app
             </summary>
             <param name="app">Application</param>
         </member>
-        <member name="T:Api.Configuration.HealthCheckConfiguration">
+        <member name="T:Template.Api.Configuration.HealthCheckConfiguration">
             <summary>
             Health check service registration class
             </summary>
         </member>
-        <member name="M:Api.Configuration.HealthCheckConfiguration.AddAppHealthChecks(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+        <member name="M:Template.Api.Configuration.HealthCheckConfiguration.AddAppHealthChecks(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
             <summary>
             Adds health check service to the service collection
             </summary>
             <param name="services">App service collection</param>
         </member>
-        <member name="M:Api.Configuration.HealthCheckConfiguration.UseAppHealthChecks(Microsoft.AspNetCore.Builder.WebApplication)">
+        <member name="M:Template.Api.Configuration.HealthCheckConfiguration.UseAppHealthChecks(Microsoft.AspNetCore.Builder.WebApplication)">
             <summary>
             Use health check service
             </summary>
             <param name="app">Application</param>
         </member>
-        <member name="T:Api.Configuration.ExampleHealthCheck">
+        <member name="T:Template.Api.Configuration.ExampleHealthCheck">
             <summary>
             A basic api health check
             </summary>
         </member>
-        <member name="M:Api.Configuration.ExampleHealthCheck.CheckHealthAsync(Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckContext,System.Threading.CancellationToken)">
+        <member name="M:Template.Api.Configuration.ExampleHealthCheck.CheckHealthAsync(Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckContext,System.Threading.CancellationToken)">
             <summary>
             Asynchronous health check
             </summary>
@@ -69,57 +81,57 @@
             <param name="cancellationToken"></param>
             <returns>Healthy or Unhealthy</returns>
         </member>
-        <member name="T:Api.Configuration.MiddlewareConfiguration">
+        <member name="T:Template.Api.Configuration.MiddlewareConfiguration">
             <summary>
             Middleware configuration class
             </summary>
         </member>
-        <member name="M:Api.Configuration.MiddlewareConfiguration.UseAppMiddlwares(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+        <member name="M:Template.Api.Configuration.MiddlewareConfiguration.UseAppMiddlwares(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
             <summary>
             Enables all app middlewares
             </summary>
             <param name="app">Application</param>
         </member>
-        <member name="T:Api.Configuration.SwaggerConfiguration">
+        <member name="T:Template.Api.Configuration.SwaggerConfiguration">
             <summary>
             OpenAPI configuration class
             </summary>
         </member>
-        <member name="M:Api.Configuration.SwaggerConfiguration.AddAppSwagger(Microsoft.Extensions.DependencyInjection.IServiceCollection,Settings.IApiSettings)">
+        <member name="M:Template.Api.Configuration.SwaggerConfiguration.AddAppSwagger(Microsoft.Extensions.DependencyInjection.IServiceCollection,Template.Settings.IApiSettings)">
             <summary>
             Enables OpenAPI for the project
             </summary>
             <param name="services">Service collection</param>
             <param name="settings">API settings provider</param>
         </member>
-        <member name="M:Api.Configuration.SwaggerConfiguration.UseAppSwagger(Microsoft.AspNetCore.Builder.WebApplication)">
+        <member name="M:Template.Api.Configuration.SwaggerConfiguration.UseAppSwagger(Microsoft.AspNetCore.Builder.WebApplication)">
             <summary>
             Enables OpenAPI for the app
             </summary>
             <param name="app">Applocation</param>
         </member>
-        <member name="T:Api.Configuration.ValidationConfiguration">
+        <member name="T:Template.Api.Configuration.ValidationConfiguration">
             <summary>
             Validation configuration class
             </summary>
         </member>
-        <member name="M:Api.Configuration.ValidationConfiguration.AddValidator(Microsoft.Extensions.DependencyInjection.IMvcBuilder)">
+        <member name="M:Template.Api.Configuration.ValidationConfiguration.AddValidator(Microsoft.Extensions.DependencyInjection.IMvcBuilder)">
             <summary>
             Configures validation and adds to the service collection
             </summary>
         </member>
-        <member name="T:Api.Configuration.VersioningConfiguration">
+        <member name="T:Template.Api.Configuration.VersioningConfiguration">
             <summary>
             Versioning configuration class
             </summary>
         </member>
-        <member name="M:Api.Configuration.VersioningConfiguration.AddAppVersions(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+        <member name="M:Template.Api.Configuration.VersioningConfiguration.AddAppVersions(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
             <summary>
             Adds versioning to the service collection
             </summary>
             <param name="services">Service collection</param>
         </member>
-        <member name="T:Api.Middleware.ExceptionsMiddleware">
+        <member name="T:Template.Api.Middleware.ExceptionsMiddleware">
             <summary>
             Global exception catcher
             </summary>

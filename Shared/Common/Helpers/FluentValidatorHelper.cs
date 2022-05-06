@@ -1,4 +1,4 @@
-﻿namespace Common.Helpers;
+﻿namespace Template.Common.Helpers;
 
 using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;

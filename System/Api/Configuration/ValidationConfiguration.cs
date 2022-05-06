@@ -1,10 +1,10 @@
-﻿using Common.Helpers;
-using Common.Responses;
+﻿using Template.Common.Helpers;
+using Template.Common.Responses;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
-namespace Api.Configuration;
+namespace Template.Api.Configuration;
 
 /// <summary>
 /// Validation configuration class

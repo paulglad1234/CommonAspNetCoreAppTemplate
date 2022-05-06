@@ -1,4 +1,4 @@
-﻿namespace Api.Configuration;
+﻿namespace Template.Api.Configuration;
 
 /// <summary>
 /// CORS configuration class

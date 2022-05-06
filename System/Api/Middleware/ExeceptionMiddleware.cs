@@ -1,7 +1,7 @@
-﻿namespace Api.Middleware;
+﻿namespace Template.Api.Middleware;
 
-using Common.Extensions;
-using Common.Responses;
+using Template.Common.Extensions;
+using Template.Common.Responses;
 using System.Text.Json;
 
 /// <summary>

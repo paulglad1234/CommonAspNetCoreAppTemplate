@@ -1,6 +1,6 @@
-﻿namespace Common.Extensions;
+﻿namespace Template.Common.Extensions;
 
-using Common.Responses;
+using Template.Common.Responses;
 using FluentValidation.Results;
 
 public static class ErrorResponseExtensions

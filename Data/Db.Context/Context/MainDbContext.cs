@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace Db.Context;
+namespace Template.Db.Context;
 
 public class MainDbContext : DbContext
 {

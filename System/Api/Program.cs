@@ -1,6 +1,7 @@
-using Api.Configuration;
+using Template.Api;
+using Template.Api.Configuration;
 using Serilog;
-using Settings;
+using Template.Settings;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,9 +29,11 @@ services.AddAppCors();
 
 services.AddControllers().AddValidator();
 
-services.AddSettings();
+services.AddAppServices();
 
 services.AddAppSwagger(settings);
+
+services.AddAppAutoMapper();
 
 var app = builder.Build();
 

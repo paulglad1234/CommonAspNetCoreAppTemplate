@@ -1,4 +1,4 @@
-﻿namespace Common.Responses;
+﻿namespace Template.Common.Responses;
 
 public class ErrorResponse
 {

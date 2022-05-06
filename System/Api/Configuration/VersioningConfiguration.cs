@@ -1,4 +1,4 @@
-﻿namespace Api.Configuration;
+﻿namespace Template.Api.Configuration;
 
 using Microsoft.AspNetCore.Mvc;
 

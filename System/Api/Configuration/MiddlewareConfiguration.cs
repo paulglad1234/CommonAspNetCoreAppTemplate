@@ -1,6 +1,6 @@
-﻿using Api.Middleware;
+﻿using Template.Api.Middleware;
 
-namespace Api.Configuration;
+namespace Template.Api.Configuration;
 
 /// <summary>
 /// Middleware configuration class

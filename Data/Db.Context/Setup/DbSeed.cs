@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Db.Context.Setup;
+namespace Template.Db.Context.Setup;
 
 public static class DbSeed
 {

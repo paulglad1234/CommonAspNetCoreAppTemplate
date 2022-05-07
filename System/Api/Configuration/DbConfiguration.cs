@@ -26,10 +26,10 @@ public static class DbConfiguration
     /// Use database in the app
     /// </summary>
     /// <param name="app">Application</param>
-    public static IApplicationBuilder UseAppDbContext(this WebApplication app)
+    public static IApplicationBuilder UseAppDbContext(this IApplicationBuilder app)
     {
-        DbInit.Execute(app.Services);
-        DbSeed.Execute(app.Services);
+        DbInit.Execute(app.ApplicationServices);
+        DbSeed.Execute(app.ApplicationServices);
 
         return app;
     }

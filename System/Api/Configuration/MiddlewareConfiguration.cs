@@ -11,7 +11,7 @@ public static class MiddlewareConfiguration
     /// Enables all app middlewares
     /// </summary>
     /// <param name="app">Application</param>
-    public static IApplicationBuilder UseAppMiddlwares(this IApplicationBuilder app)
+    public static IApplicationBuilder UseAppMiddlewares(this IApplicationBuilder app)
     {
         return app.UseMiddleware<ExceptionsMiddleware>();
     }

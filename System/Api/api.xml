@@ -16,6 +16,24 @@
             <param name="services">Service collection</param>
             <returns>Service collection</returns>
         </member>
+        <member name="T:Template.Api.Configuration.AuthConfiguration">
+            <summary>
+            Authentication and authorization configuration class
+            </summary>
+        </member>
+        <member name="M:Template.Api.Configuration.AuthConfiguration.AddAppAuth(Microsoft.Extensions.DependencyInjection.IServiceCollection,Template.Settings.IApiSettings)">
+            <summary>
+            Configure authentication and authorization and add them to the service collection
+            </summary>
+            <param name="services">Service collection</param>
+            <param name="settings">Settings</param>
+            <returns></returns>
+        </member>
+        <member name="M:Template.Api.Configuration.AuthConfiguration.UseAppAuth(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            Enable authentication and authorization
+            </summary>
+        </member>
         <member name="T:Template.Api.Configuration.AutoMapperConfiguration">
             <summary>
             AutoMapper configuration class
@@ -57,7 +75,7 @@
             <param name="services">Service collection</param>
             <param name="settings">App settings</param>
         </member>
-        <member name="M:Template.Api.Configuration.DbConfiguration.UseAppDbContext(Microsoft.AspNetCore.Builder.WebApplication)">
+        <member name="M:Template.Api.Configuration.DbConfiguration.UseAppDbContext(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
             <summary>
             Use database in the app
             </summary>
@@ -98,7 +116,7 @@
             Middleware configuration class
             </summary>
         </member>
-        <member name="M:Template.Api.Configuration.MiddlewareConfiguration.UseAppMiddlwares(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+        <member name="M:Template.Api.Configuration.MiddlewareConfiguration.UseAppMiddlewares(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
             <summary>
             Enables all app middlewares
             </summary>
@@ -146,24 +164,6 @@
         <member name="T:Template.Api.Middleware.ExceptionsMiddleware">
             <summary>
             Global exception catcher
-            </summary>
-        </member>
-        <member name="T:Template.API.Configuration.AuthConfiguration">
-            <summary>
-            Authentication and authorization configuration class
-            </summary>
-        </member>
-        <member name="M:Template.API.Configuration.AuthConfiguration.AddAppAuth(Microsoft.Extensions.DependencyInjection.IServiceCollection,Template.Settings.IApiSettings)">
-            <summary>
-            Configure authentication and authorization and add them to the service collection
-            </summary>
-            <param name="services">Service collection</param>
-            <param name="settings">Settings</param>
-            <returns></returns>
-        </member>
-        <member name="M:Template.API.Configuration.AuthConfiguration.UseAppAuth(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
-            <summary>
-            Enable authentication and authorization
             </summary>
         </member>
     </members>

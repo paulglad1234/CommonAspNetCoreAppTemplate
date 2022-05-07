@@ -37,7 +37,7 @@ services.AddAppAutoMapper();
 
 var app = builder.Build();
 
-app.UseAppMiddlwares();
+app.UseAppMiddlewares();
 
 app.UseRouting();
 

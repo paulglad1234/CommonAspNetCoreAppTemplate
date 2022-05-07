@@ -1,4 +1,4 @@
-﻿namespace Template.API.Configuration;
+﻿namespace Template.Api.Configuration;
 
 using Template.Db.Context;
 using Template.Db.Entities;

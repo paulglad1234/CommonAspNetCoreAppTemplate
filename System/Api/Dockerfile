@@ -21,5 +21,9 @@ RUN dotnet publish "Template.Api.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
+
+## Add the wait script to the image
+COPY ./wait-for-it.sh /wait-for-it.sh
+RUN chmod +x /wait-for-it.sh
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Template.Api.dll"]
+ENTRYPOINT ["/wait-for-it.sh", "sqlserver:1433", "-s", "-t", "60", "--", "dotnet", "Template.Api.dll"]

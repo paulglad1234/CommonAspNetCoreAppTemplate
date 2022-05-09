@@ -44,7 +44,7 @@ public class ApiStartup
 
         services.AddAppServices();
 
-        services.AddAppAuth(settings);
+        //services.AddAppAuth(settings);
 
         services.AddControllers().AddValidator();
 
@@ -69,14 +69,13 @@ public class ApiStartup
 
         app.UseSerilogRequestLogging();
 
-        app.UseAppAuth();
+        //app.UseAppAuth();
 
         app.UseEndpoints(endpoints =>
         {
             endpoints.MapControllers();
         });
 
-        //app.UseAppDbContext();
         DbInit.Execute(app.ApplicationServices);
     }
 }
